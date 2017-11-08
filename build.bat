@@ -8,6 +8,6 @@ if [%2]==[] (
   EXIT /B
 )
 
-csc /out:ClangSharpPInvokeGenerator.exe ClangSharpPInvokeGenerator\*.cs
-ClangSharpPInvokeGenerator.exe --m clang --p clang_ --namespace ClangSharp --output Generated.cs --libraryPath %1 --include %2 --file %2/clang-c/Index.h --file %2/clang-c/CXString.h --file %2/clang-c/Documentation.h --file %2/clang-c/CXErrorCode.h --file %2/clang-c/BuildSystem.h --file %2/clang-c/CXCompilationDatabase.h 
+csc /out:ClangSharpPInvokeGenerator.exe /debug /pdb:ClangSharpPInvokeGenerator ClangSharpPInvokeGenerator\*.cs
+ClangSharpPInvokeGenerator.exe --m clang --p clang_ --namespace ClangSharp --output Generated.cs --libraryPath %1 --include %2 --file %2/clang-c/Index.h --file %2/clang-c/CXString.h --file %2/clang-c/Documentation.h --file %2/clang-c/CXErrorCode.h --file %2/clang-c/BuildSystem.h --file %2/clang-c/CXCompilationDatabase.h --clangPath %3 
 csc /target:library /out:ClangSharp.dll Generated.cs Extensions.cs
