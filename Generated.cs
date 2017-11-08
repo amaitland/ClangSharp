@@ -1335,6 +1335,7 @@ namespace ClangSharp
         private const string libraryPath = "libclang";
 
         [DllImport(libraryPath, EntryPoint = "clang_getCString", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string getCString(CXString @string);
 
         [DllImport(libraryPath, EntryPoint = "clang_disposeString", CallingConvention = CallingConvention.Cdecl)]
@@ -1578,6 +1579,7 @@ namespace ClangSharp
         public static extern int reparseTranslationUnit(CXTranslationUnit @TU, uint @num_unsaved_files, out CXUnsavedFile @unsaved_files, uint @options);
 
         [DllImport(libraryPath, EntryPoint = "clang_getTUResourceUsageName", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string getTUResourceUsageName(CXTUResourceUsageKind @kind);
 
         [DllImport(libraryPath, EntryPoint = "clang_getCXTUResourceUsage", CallingConvention = CallingConvention.Cdecl)]
@@ -2163,6 +2165,7 @@ namespace ClangSharp
         public static extern double EvalResult_getAsDouble(CXEvalResult @E);
 
         [DllImport(libraryPath, EntryPoint = "clang_EvalResult_getAsStr", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string EvalResult_getAsStr(CXEvalResult @E);
 
         [DllImport(libraryPath, EntryPoint = "clang_EvalResult_dispose", CallingConvention = CallingConvention.Cdecl)]
